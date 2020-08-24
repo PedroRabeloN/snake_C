@@ -37,13 +37,41 @@ void inicializaJogo() {
     // inicializa objetos no mapa
     mapa1 = lst_cria();
 
-    // insere 2 paredes
-    mapa1 = lst_insere(mapa1, 5, 2,(char)219);
-    mapa1 = lst_insere(mapa1, 6, 2,(char)219);
+    // cria mapa
+    criaMapa();
     // insere 1 objeto
     mapa1 = lst_insere(mapa1, 10, 5,(char)003);
 }
 
+void criaMapa(){
+    criaMapaLinhaHorizontal(2,60,2);
+    criaMapaLinhaHorizontal(2,60,20);
+    criaMapaLinhaVertical(2,20,2);
+    criaMapaLinhaVertical(2,20,60);
+
+    criaMapaLinhaHorizontal(10,15,6);
+    criaMapaLinhaHorizontal(10,15,7);
+    criaMapaLinhaHorizontal(10,15,8);
+
+
+    criaMapaLinhaVertical(13,20,40);
+    criaMapaLinhaVertical(13,20,41);
+    criaMapaLinhaHorizontal(30,40,13);
+
+
+
+}
+void criaMapaLinhaHorizontal(int inicio,int fim,int coluna){
+    for (inicio; inicio <= fim;inicio++){
+        mapa1 = lst_insere(mapa1, inicio, coluna,(char)219);
+    }
+}
+
+void criaMapaLinhaVertical (int inicio,int fim,int linha){
+    for (inicio; inicio <= fim;inicio++){
+        mapa1 = lst_insere(mapa1, linha , inicio,(char)219);
+    }
+}
 // faz controle
 void controle() {
     // atualiza relogio
@@ -101,7 +129,7 @@ void atualizaMapa() {
 }
 
 int main() {
-    setWindow(80,25); // define tamanho da janela: linhas, colunas
+    setWindow(100,25); // define tamanho da janela: linhas, colunas
     SetConsoleTitle("Nome do Seu Jogo"); // titulo da janela
 
     inicializaJogo();
