@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1522780596 source:c:\users\thiago\google drive\ifsc\informática\2018-1\est\unidade1\minigamep2\console.c
+	<windows.h>
+	"console.h"
+
+1522780589 c:\users\thiago\google drive\ifsc\informática\2018-1\est\unidade1\minigamep2\console.h
+
+1522781947 source:c:\users\thiago\google drive\ifsc\informática\2018-1\est\unidade1\minigamep2\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"console.h"
+
+1522781601 c:\users\thiago\google drive\ifsc\informática\2018-1\est\unidade1\minigamep2\lista.h
+
+1522782244 source:c:\users\thiago\google drive\ifsc\informática\2018-1\est\unidade1\minigamep2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<unistd.h>
+	<time.h>
+	<windows.h>
+	"lista.h"
+	"console.h"
+
+1522780596 source:c:\users\thiago\google drive\ifsc\informática\2019-1\est\unidade1\minigamep2\console.c
+	<windows.h>
+	"console.h"
+
+1522780589 c:\users\thiago\google drive\ifsc\informática\2019-1\est\unidade1\minigamep2\console.h
+
+1522781947 source:c:\users\thiago\google drive\ifsc\informática\2019-1\est\unidade1\minigamep2\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"console.h"
+
+1522781601 c:\users\thiago\google drive\ifsc\informática\2019-1\est\unidade1\minigamep2\lista.h
+
+1554336819 source:c:\users\thiago\google drive\ifsc\informática\2019-1\est\unidade1\minigamep2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<unistd.h>
+	<time.h>
+	<windows.h>
+	"lista.h"
+	"console.h"
+
