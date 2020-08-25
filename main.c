@@ -40,7 +40,7 @@ void inicializaJogo() {
     // cria mapa
     criaMapa();
     // insere 1 objeto
-    mapa1 = lst_insere(mapa1, 10, 5,(char)003);
+    mapa1 = lst_insere(mapa1, 10, 5,(char)003,COLOR_RED);
 }
 
 void criaMapa(){
@@ -63,13 +63,13 @@ void criaMapa(){
 }
 void criaMapaLinhaHorizontal(int inicio,int fim,int coluna){
     for (inicio; inicio <= fim;inicio++){
-        mapa1 = lst_insere(mapa1, inicio, coluna,(char)219);
+        mapa1 = lst_insere(mapa1, inicio, coluna,(char)219,COLOR_YELLOW);
     }
 }
 
 void criaMapaLinhaVertical (int inicio,int fim,int linha){
     for (inicio; inicio <= fim;inicio++){
-        mapa1 = lst_insere(mapa1, linha , inicio,(char)219);
+        mapa1 = lst_insere(mapa1, linha , inicio,(char)219,COLOR_YELLOW);
     }
 }
 // faz controle
@@ -118,6 +118,7 @@ void atualizaMapa() {
     lst_imprime(mapa1);
     // desenha personagem
     gotoxy(p.x,p.y);
+    setColor(COLOR_GREEN);
     printf("%c", p.avatar);
 
     // relogio
@@ -130,6 +131,7 @@ void atualizaMapa() {
     gotoxy(0,23);
     printf("                 ");
     gotoxy(0,23);
+
     printf("p.x=%d p.y=%d", p.x, p.y);
 
 

@@ -6,7 +6,7 @@ typedef struct lista Lista;
 Lista* lst_cria();
 
 // Insere um novo elemento na lista com as coordenadas informadas
-Lista* lst_insere(Lista* l, int x, int y, char simbolo);
+Lista* lst_insere(Lista* l, int x, int y, char simbolo,int cor);
 
 // Imprime objetos da lista
 void lst_imprime(Lista* l);

@@ -6,6 +6,8 @@
 struct lista {
     int x,y; // identificador do objeto
     char simbolo; // simbolo do elemento
+    int cor,corFundo; //dertemina cores;
+    int tipo; //tipo
     struct lista* prox; // ponteiro para o proximo elemento
 };
 
@@ -13,18 +15,21 @@ Lista* lst_cria() {
     return NULL;
 }
 
-Lista* lst_insere(Lista* l, int x, int y, char simbolo) {
+Lista* lst_insere(Lista* l, int x, int y, char simbolo,int cor) {
     Lista* novo = (Lista*) malloc(sizeof(Lista));
     novo->x = x;
     novo->y = y;
     novo->simbolo = simbolo;
     novo->prox = l;
+    novo->cor = cor;
     return novo;
 }
 
 void lst_imprime(Lista* l) {
     Lista* p;
     for(p = l; p != NULL; p = p->prox) {
+        setColor(p->cor);
+        //setBackgroundColor(p->corFundo);
         gotoxy(p->x, p->y);
         printf("%c", p->simbolo);
     }
