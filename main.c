@@ -87,6 +87,12 @@ void controle() {
         case TECLA_BAIXO:
             p.y++;
             break;
+        case TECLA_ESQUERDA:
+            p.x--;
+            break;
+        case TECLA_DIREITA:
+            p.x++;
+            break;
         case TECLA_ESC:
             exit(0);
             break;
@@ -110,7 +116,6 @@ void atualizaMapa() {
 
     // desenha objetos
     lst_imprime(mapa1);
-
     // desenha personagem
     gotoxy(p.x,p.y);
     printf("%c", p.avatar);
@@ -126,6 +131,9 @@ void atualizaMapa() {
     printf("                 ");
     gotoxy(0,23);
     printf("p.x=%d p.y=%d", p.x, p.y);
+
+
+
 }
 
 int main() {
