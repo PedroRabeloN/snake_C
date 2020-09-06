@@ -15,13 +15,16 @@ Lista* lst_cria() {
     return NULL;
 }
 
-Lista* lst_insere(Lista* l, int x, int y, char simbolo,int cor) {
+Lista* lst_insere(Lista* l, int x, int y, char simbolo,int cor,int corFundo, int tipo) {
     Lista* novo = (Lista*) malloc(sizeof(Lista));
     novo->x = x;
     novo->y = y;
     novo->simbolo = simbolo;
     novo->prox = l;
     novo->cor = cor;
+    novo->corFundo = corFundo;
+    novo->tipo = tipo;
+
     return novo;
 }
 
@@ -29,17 +32,19 @@ void lst_imprime(Lista* l) {
     Lista* p;
     for(p = l; p != NULL; p = p->prox) {
         setColor(p->cor);
-        //setBackgroundColor(p->corFundo);
+        setBackgroundColor(p->corFundo);
         gotoxy(p->x, p->y);
         printf("%c", p->simbolo);
     }
 }
 
 int lst_temElemento(Lista* l, int x, int y) {
-    // Antes de inserir um novo elemento, verifique se
-    // ja existe algum elemento na posicao desejada.
-    // Esta funcao deve ser implementada.
-    // Nao e necessario implementa-la para executar este projeto.
+    Lista* p;
+    for(p = l; p != NULL; p = p->prox) {
+        if ((p->x == x) && (p->y == y)){
+            return p->tipo;
+        }
+    }
     return 0;
 }
 

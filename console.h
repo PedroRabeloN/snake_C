@@ -31,6 +31,21 @@ enum {
     COLOR_WHITE
 };
 
+enum {
+    NADA,
+    PAREDE,
+    FRUTA1,
+    FRUTA2,
+    FRUTA3
+};
+
+enum {
+    EM_JOGO,
+    MORTO
+};
+
+
+
 // Define coordenadas da janela
 void setWindow(int Width, int Height);
 

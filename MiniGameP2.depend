@@ -47,3 +47,38 @@
 	"lista.h"
 	"console.h"
 
+1598311106 source:d:\workspaces\codeblocks\snake_c\console.c
+	<windows.h>
+	"console.h"
+
+1599416462 d:\workspaces\codeblocks\snake_c\console.h
+
+1599412889 source:d:\workspaces\codeblocks\snake_c\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"console.h"
+
+1599412445 d:\workspaces\codeblocks\snake_c\lista.h
+
+1599419356 source:d:\workspaces\codeblocks\snake_c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<unistd.h>
+	<time.h>
+	<windows.h>
+	"lista.h"
+	"listaFrutas.h"
+	"console.h"
+
+1599419858 source:d:\workspaces\codeblocks\snake_c\listafrutas.c
+	<stdio.h>
+	<stdlib.h>
+	"listaFrutas.h"
+	"lista.h"
+	"console.h"
+
+1599419860 d:\workspaces\codeblocks\snake_c\listafrutas.h
+	"lista.h"
+

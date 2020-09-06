@@ -5,6 +5,7 @@
 #include <time.h> // time
 #include <windows.h> // Beep e SetConsoleTitle
 #include "lista.h"
+#include "listaFrutas.h"
 #include "console.h"
 
 // para a leitura de teclas
@@ -12,6 +13,8 @@ char tecla, tem_tecla;
 // para o relogio
 int tempo;
 time_t inicial, atual;
+int statusJogo;
+int pontuacao;
 // personagem
 struct personagem {
     int x,y;
@@ -22,8 +25,16 @@ Personagem p;
 // mapa
 Lista* mapa1;
 
+ListaFruta* frutas;
+
 // cria mapa e objetos
 void inicializaJogo() {
+    iniciaFrutas();
+    statusJogo= EM_JOGO;
+    pontuacao = 0;
+
+
+
     // para o relogio
     tempo = 0;
     time(&inicial);
@@ -32,16 +43,33 @@ void inicializaJogo() {
     p.x = 5;
     p.y = 5;
     // avatar
-    p.avatar = 'P'; // char
+    p.avatar = 'o'; // char
 
     // inicializa objetos no mapa
     mapa1 = lst_cria();
 
     // cria mapa
     criaMapa();
-    // insere 1 objeto
-    mapa1 = lst_insere(mapa1, 10, 5,(char)003,COLOR_RED);
+
+    insereFrutaAleatoria();
+
 }
+void iniciaFrutas(){
+    frutas = lst_fruta_cria;
+    lst_fruta_insere(frutas,100,'o',COLOR_RED,COLOR_BLACK,FRUTA1);
+    lst_fruta_insere(frutas,200,'o',COLOR_GREEN,COLOR_BLACK,FRUTA2);
+    lst_fruta_insere(frutas,500,'o',COLOR_BLUE,COLOR_BLACK,FRUTA3);
+}
+
+void insereFrutaAleatoria(){
+    int randonFruta = rand() % 2;
+    int x = 2 + rand() % (20-2);
+    int y = 2 + rand() % (60-2);
+
+
+}
+
+void
 
 void criaMapa(){
     criaMapaLinhaHorizontal(2,60,2);
@@ -63,13 +91,13 @@ void criaMapa(){
 }
 void criaMapaLinhaHorizontal(int inicio,int fim,int coluna){
     for (inicio; inicio <= fim;inicio++){
-        mapa1 = lst_insere(mapa1, inicio, coluna,(char)219,COLOR_YELLOW);
+        mapa1 = lst_insere(mapa1, inicio, coluna,(char)219,COLOR_YELLOW,COLOR_YELLOW,PAREDE);
     }
 }
 
 void criaMapaLinhaVertical (int inicio,int fim,int linha){
     for (inicio; inicio <= fim;inicio++){
-        mapa1 = lst_insere(mapa1, linha , inicio,(char)219,COLOR_YELLOW);
+        mapa1 = lst_insere(mapa1, linha , inicio,(char)219,COLOR_YELLOW,COLOR_YELLOW,PAREDE);
     }
 }
 // faz controle
@@ -112,14 +140,12 @@ void leTeclado() {
 // desenha mapa
 void atualizaMapa() {
     // limpa a tela
-    system("cls");
+
 
     // desenha objetos
     lst_imprime(mapa1);
     // desenha personagem
-    gotoxy(p.x,p.y);
-    setColor(COLOR_GREEN);
-    printf("%c", p.avatar);
+    desenhaPersonagem();
 
     // relogio
     setColor(COLOR_YELLOW);
@@ -132,9 +158,55 @@ void atualizaMapa() {
     printf("                 ");
     gotoxy(0,23);
 
+    gotoxy(0,21);
+    printf("Pontos : %d    ", pontuacao);
+
     printf("p.x=%d p.y=%d", p.x, p.y);
 
+}
+void desenhaPersonagem(){
 
+    colisao();
+    gotoxy(p.x,p.y);
+    setColor(COLOR_RED);
+    setBackgroundColor(COLOR_GREEN);
+    printf("%c", p.avatar);
+}
+
+void colisao(){
+    if (lst_temElemento(mapa1,p.x,p.y) == PAREDE){
+        morreu();
+    }
+        if (lst_temElemento(mapa1,p.x,p.y) == FRUTA1){
+        pegaFruta(100,p.x,p.y);
+    }
+        if (lst_temElemento(mapa1,p.x,p.y) == FRUTA2){
+        morreu();
+    }
+        if (lst_temElemento(mapa1,p.x,p.y) == FRUTA3){
+        morreu();
+    }
+}
+void pegaFruta(int valor,int x, int y){
+    mapa1 =lst_retira(mapa1,x,y);
+    pontuacao = pontuacao + valor;
+}
+void morreu(){
+    int tecla;
+    statusJogo=MORTO;
+    setBackgroundColor(COLOR_BLACK);
+    system("cls");
+    gotoxy (1,1);
+    printf("%s","morreu morreu ainda bem que nao foi eu \n precina 1 pra começa dnovo");
+    scanf("%d",&tecla);
+    if(tecla == 1){
+        inicializaJogo();
+        updateGame();
+
+        return;
+    }else{
+        exit(666);
+    }
 
 }
 
@@ -143,8 +215,12 @@ int main() {
     SetConsoleTitle("Nome do Seu Jogo"); // titulo da janela
 
     inicializaJogo();
+    updateGame();
 
-    while(1) {
+}
+
+void updateGame(){
+    while(statusJogo == EM_JOGO) {
         leTeclado();
         controle();
         atualizaMapa();
