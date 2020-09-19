@@ -61,7 +61,7 @@
 
 1599412445 d:\workspaces\codeblocks\snake_c\lista.h
 
-1599419356 source:d:\workspaces\codeblocks\snake_c\main.c
+1600554279 source:d:\workspaces\codeblocks\snake_c\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -69,16 +69,22 @@
 	<time.h>
 	<windows.h>
 	"lista.h"
-	"listaFrutas.h"
+	"corpo.h"
 	"console.h"
 
-1599419858 source:d:\workspaces\codeblocks\snake_c\listafrutas.c
+1599420431 source:d:\workspaces\codeblocks\snake_c\listafrutas.c
 	<stdio.h>
 	<stdlib.h>
 	"listaFrutas.h"
-	"lista.h"
 	"console.h"
 
-1599419860 d:\workspaces\codeblocks\snake_c\listafrutas.h
-	"lista.h"
+1599420444 d:\workspaces\codeblocks\snake_c\listafrutas.h
+
+1600553696 source:d:\workspaces\codeblocks\snake_c\corpo.c
+	<stdio.h>
+	<stdlib.h>
+	"corpo.h"
+	"console.h"
+
+1600552928 d:\workspaces\codeblocks\snake_c\corpo.h
 
