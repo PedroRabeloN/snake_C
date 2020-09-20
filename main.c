@@ -156,7 +156,6 @@ void leTeclado() {
 
 // desenha mapa
 void atualizaMapa() {
-    // desenha objetos
     apagaRastro();
     lst_imprime(mapa1);
     corpo_imprime(corpo);
@@ -190,25 +189,20 @@ void desenhaPersonagem(){
 
 
 void colisao(){
+    apagarUltimo(corpo);
     if (lst_temElemento(mapa1,p.x,p.y) == PAREDE){
         morreu();
     }else if (lst_temElemento(mapa1,p.x,p.y) == FRUTA1){
         pegaFruta(100,p.x,p.y);
         insereFrutaAleatoria();
-        corpo=corpo_insere(corpo,p.x,p.y);
     }else if (lst_temElemento(mapa1,p.x,p.y) == FRUTA2){
         pegaFruta(100,p.x,p.y);
         insereFrutaAleatoria();
-        corpo=corpo_insere(corpo,p.x,p.y);
     }else if (lst_temElemento(mapa1,p.x,p.y) == FRUTA3){
         pegaFruta(100,p.x,p.y);
         insereFrutaAleatoria();
-        corpo=corpo_insere(corpo,p.x,p.y);
-    }else{
-        apagarUltimo(corpo);
-        corpo=corpo_insere(corpo,p.x,p.y);
-
     }
+    corpo=corpo_insere(corpo,p.x,p.y);
 }
 void pegaFruta(int valor,int x, int y){
     mapa1 =lst_retira(mapa1,x,y);

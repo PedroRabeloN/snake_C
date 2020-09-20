@@ -94,7 +94,7 @@
 
 1600554762 c:\users\usuario\documents\github\snake_c\console.h
 
-1600561828 source:c:\users\usuario\documents\github\snake_c\corpo.c
+1600567292 source:c:\users\usuario\documents\github\snake_c\corpo.c
 	<stdio.h>
 	<stdlib.h>
 	"corpo.h"
@@ -110,7 +110,7 @@
 
 1600554762 c:\users\usuario\documents\github\snake_c\lista.h
 
-1600563470 source:c:\users\usuario\documents\github\snake_c\main.c
+1600566899 source:c:\users\usuario\documents\github\snake_c\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
