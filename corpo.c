@@ -27,3 +27,14 @@ void corpo_imprime(Corpo* l) {
         printf("%c", 'b');
     }
 }
+
+void apagarUltimo(Corpo* c){
+    Corpo* p;
+    for(p = c; p != NULL; p = p->prox) {
+        if(p->prox==NULL){
+            gotoxy(p->x,p->y);
+            printf("%c",' ');
+            free(p);
+        }
+    }
+}

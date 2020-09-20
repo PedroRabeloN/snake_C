@@ -141,6 +141,8 @@ void controle() {
             break;
         }
     }
+    //apagarUltimo(corpo);
+    //
     tecla_anterior = tecla;
 }
 
@@ -193,12 +195,19 @@ void colisao(){
     }else if (lst_temElemento(mapa1,p.x,p.y) == FRUTA1){
         pegaFruta(100,p.x,p.y);
         insereFrutaAleatoria();
+        corpo=corpo_insere(corpo,p.x,p.y);
     }else if (lst_temElemento(mapa1,p.x,p.y) == FRUTA2){
         pegaFruta(100,p.x,p.y);
         insereFrutaAleatoria();
+        corpo=corpo_insere(corpo,p.x,p.y);
     }else if (lst_temElemento(mapa1,p.x,p.y) == FRUTA3){
         pegaFruta(100,p.x,p.y);
         insereFrutaAleatoria();
+        corpo=corpo_insere(corpo,p.x,p.y);
+    }else{
+        apagarUltimo(corpo);
+        corpo=corpo_insere(corpo,p.x,p.y);
+
     }
 }
 void pegaFruta(int valor,int x, int y){
